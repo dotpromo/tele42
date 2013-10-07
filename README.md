@@ -1,4 +1,4 @@
-# Tele42 [![Build Status](https://travis-ci.org/dotpromo/tele42.png?branch=master)](https://travis-ci.org/dotpromo/tele42) [![Coverage Status](https://coveralls.io/repos/dotpromo/tele42/badge.png)](https://coveralls.io/r/dotpromo/tele42)
+# Tele42 [![Build Status](https://travis-ci.org/dotpromo/tele42.png?branch=master)](https://travis-ci.org/dotpromo/tele42) [![Coverage Status](https://coveralls.io/repos/dotpromo/tele42/badge.png)](https://coveralls.io/r/dotpromo/tele42) [![Code Climate](https://codeclimate.com/github/dotpromo/tele42.png)](https://codeclimate.com/github/dotpromo/tele42)
 
 42 Telecom HTTP SMS-MT API wrapper
 
