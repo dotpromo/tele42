@@ -71,7 +71,7 @@ describe ::Tele42::SMS do
       expect { subject.send_text(to: '1234567', from: '12345678', text: 'foobar') }.to raise_error(::Tele42::NotEnoughCredits)
     end
     it 'should send sms in unicode variant' do
-      stub_request(:get, "https://c/api/current/send/message.php?coding=unicode&from=12345678&message=00480065006c006c006f00200057006f0072006c0064&password=b&route=d&to=1234567&username=a").
+      stub_request(:get, "https://c/api/current/send/message.php?coding=unicode&from=12345678&message=00480065006C006C006F00200057006F0072006C0064&password=b&route=d&to=1234567&username=a").
                with(:headers => {'Accept'=>'text/html', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Tele42 v0.0.1'}).
                to_return(:status => 200, :body => "1,nessage_id,1", :headers => {})
       subject.unicode!

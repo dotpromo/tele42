@@ -69,7 +69,7 @@ module Tele42
         if defined?(JRUBY_VERSION)
           message.each_byte.map { |b| sprintf('00%02X', b) }.join
         else
-          ::Kconv.kconv(message, ::NKF::UTF16, ::NKF::UTF8).unpack('H*').first
+          ::Kconv.kconv(message, ::NKF::UTF16, ::NKF::UTF8).unpack('H*').first.upcase
         end
       else
         message.force_encoding('iso-8859-1')
