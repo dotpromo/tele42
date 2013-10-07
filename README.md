@@ -22,11 +22,18 @@ Or install it yourself as:
 ### Send text message
 
 ```ruby
-# Nexmos specific client
+# 42 Telecom specific client
 client = ::Tele42::SMS.new({username: 'username', password: 'password', server: 'https://server1.msgtoolbox.com'})
 # get result from 42 Telecom
 id_of_sms_message = client.send_text(from: '1234567890', to: '1234567890', text: 'Hello world!')
 ```
+
+## Ruby versions supporting
+
+* 1.9.3
+* 2.0.0
+* Rubinius in 1.9 mode
+* jRuby in 1.9 mode
 
 ## Contributing
 
