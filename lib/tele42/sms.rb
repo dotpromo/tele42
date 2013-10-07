@@ -1,14 +1,13 @@
 module Tele42
   class SMS < ::Tele42::Base
 
-    class InvalidFrom < StandardError; end
-    class BadLoginDetails < StandardError; end
-    class BadMessage < StandardError; end
-    class BadNumber < StandardError; end
-    class NotEnoughCredits < StandardError; end
+    def initialize(options)
+      super(options)
+      check_route
+    end
 
     def check_route
-      raise 'route should be set' if @route.empty? || @route.nil?
+      raise ::Tele42::InvalidRoute, 'route should be set' if @route.nil? || @route.empty?
     end
 
     def default_params
@@ -19,7 +18,10 @@ module Tele42
       @unicode = true
     end
 
-    def send_text(from, to, message)
+    def send_text(options = {})
+      from = options[:from]
+      to = options[:to]
+      message = options[:text]
       check_from(from)
       params = default_params.merge(
         'to' => to,
@@ -42,16 +44,16 @@ module Tele42
       end
     end
 
-    def parse_error
+    def parse_error(data)
       case data[1].to_i
       when 1
-        raise ::Tele42::SMS::BadLoginDetails
+        raise ::Tele42::BadLoginDetails
       when 2
-        raise ::Tele42::SMS::BadMessage
+        raise ::Tele42::BadMessage
       when 3
-        raise ::Tele42::SMS::BadNumber, "Bad to number #{data[2]}"
+        raise ::Tele42::BadNumber, "Bad to number #{data[2]}"
       when 4
-        raise ::Tele42::SMS::NotEnoughCredits
+        raise ::Tele42::NotEnoughCredits
       end
     end
 
@@ -72,7 +74,7 @@ module Tele42
 
     def check_from(from)
       unless from =~ /\A\d{1,15}\z/ || from =~ /\A[[:alnum:]]{1,11}\z/
-        raise ::Tele42::SMS::InvalidFrom, 'invalid from format'
+        raise ::Tele42::InvalidFrom, 'invalid from format'
       end
     end
 

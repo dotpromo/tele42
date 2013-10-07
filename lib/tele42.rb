@@ -2,10 +2,12 @@ require 'logger'
 require 'faraday'
 require 'kconv'
 require 'tele42/version'
+require 'tele42/errors'
 require 'tele42/base'
 require 'tele42/sms'
 
 module Tele42
+
   extend self
   attr_accessor :debug, :username, :password, :server, :route, :callback_url
   attr_writer :user_agent, :logger
@@ -20,6 +22,7 @@ module Tele42
     @server = nil
     @route = nil
     @callback_url = nil
+    @user_agent = nil
   end
 
   def user_agent

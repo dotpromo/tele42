@@ -1,5 +1,7 @@
 module Tele42
   class Base
+
+
     def initialize(options = {})
       parse_options(options)
       check_options
@@ -20,13 +22,9 @@ module Tele42
     end
 
     def check_options
-      raise 'username should be set' if @username.empty? || @username.nil?
-      raise 'password should be set' if @password.empty? || @password.nil?
-      raise 'server should be set'   if @server.empty?   || @server.nil?
-      check_route
-    end
-
-    def check_route
+      raise ::Tele42::InvalidUserName, 'username should be set' if @username.nil? || @username.empty?
+      raise ::Tele42::InvalidPassword, 'password should be set' if @password.nil? || @password.empty?
+      raise ::Tele42::InvalidServer,   'server should be set'   if @server.nil?   || @server.empty?
     end
 
     def server_url

@@ -1,4 +1,4 @@
-# Tele42 [![Coverage Status](https://coveralls.io/repos/dotpromo/tele42/badge.png)](https://coveralls.io/r/dotpromo/tele42)
+# Tele42 [![Build Status](https://travis-ci.org/dotpromo/tele42.png?branch=master)](https://travis-ci.org/dotpromo/tele42) [![Coverage Status](https://coveralls.io/repos/dotpromo/tele42/badge.png)](https://coveralls.io/r/dotpromo/tele42)
 
 42 Telecom HTTP SMS-MT API wrapper
 
@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+### Send text message
+
+```ruby
+# Nexmos specific client
+client = ::Tele42::SMS.new({username: 'username', password: 'password', server: 'https://server1.msgtoolbox.com'})
+# get result from 42 Telecom
+id_of_sms_message = client.send_text(from: '1234567890', to: '1234567890', text: 'Hello world!')
+```
 
 ## Contributing
 
