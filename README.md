@@ -1,6 +1,6 @@
-# Tele42
+# Tele42 [![Coverage Status](https://coveralls.io/repos/dotpromo/tele42/badge.png)](https://coveralls.io/r/dotpromo/tele42)
 
-TODO: Write a gem description
+42 Telecom HTTP SMS-MT API wrapper
 
 ## Installation
 
