@@ -1,7 +1,7 @@
 module Tele42
   class SMS < ::Tele42::Base
 
-    def initialize(options)
+    def initialize(options = {})
       super(options)
       check_route
     end
